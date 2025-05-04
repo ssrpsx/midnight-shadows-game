@@ -42,7 +42,7 @@ export default function Topnav() {
                         </NavigationMenuItem>
 
                         <NavigationMenuItem>
-                            <Link href="/" legacyBehavior passHref>
+                            <Link href="/blog" legacyBehavior passHref>
                                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                                     Blog
                                 </NavigationMenuLink>
@@ -53,6 +53,14 @@ export default function Topnav() {
                             <Link href="/teams" legacyBehavior passHref>
                                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                                     Teams
+                                </NavigationMenuLink>
+                            </Link>
+                        </NavigationMenuItem>
+
+                        <NavigationMenuItem>
+                            <Link href="/donate" legacyBehavior passHref>
+                                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                    Donate
                                 </NavigationMenuLink>
                             </Link>
                         </NavigationMenuItem>

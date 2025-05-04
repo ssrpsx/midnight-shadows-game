@@ -46,50 +46,57 @@ const items: ItemProps[] = [
 
 export default function TeamsPage() {
     return (
-        <div className="w-full">
-            <div className="mt-8">
-                <h1 className="text-4xl">Teams</h1>
-                <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                    {items.map((item) => (
-                        <div key={item.id} className="flex flex-col items-center justify-center px-4">
-                            <AspectRatio ratio={1}>
-                                <motion.div
-                                    className="relative flex items-center justify-center w-full h-full rounded-lg group overflow-hidden"
-                                >
-                                    <img
-                                        src={item.imageUrl}
-                                        alt={item.name}
-                                        className="absolute inset-0 object-cover w-full h-full"
-                                    />
-                                    <div className="absolute inset-0 bg-muted/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-full h-full">
-                                        <div className="flex flex-col gap-4 justify-center items-center w-full h-full">
-                                            <h1>{item.name}</h1>
-                                            {item.instagram && (
-                                                <Link href={item.instagram.link} target="_blank" className="flex items-center gap-2">
-                                                    <Instagram size={18} />
-                                                    {item.instagram.label}
-                                                </Link>
-                                            )}
-                                            {item.youtube && (
-                                                <Link href={item.youtube.link} target="_blank" className="flex items-center gap-2">
-                                                    <Youtube size={20} />
-                                                    {item.youtube.label}
-                                                </Link>
-                                            )}
-                                            {item.twitter && (
-                                                <Link href={item.twitter.link} target="_blank" className="flex items-center gap-2">
-                                                    <Twitter size={20} />
-                                                    {item.twitter.label}
-                                                </Link>
-                                            )}
-                                        </div>
+        <div className="mt-8 w-full">
+            <div className="mb-8 text-center">
+                <h1 className="text-3xl font-bold tracking-tight mb-2">Our Teams</h1>
+                <p className="text-muted-foreground">Meet Our Team</p>
+            </div>
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                {items.map((item) => (
+                    <div key={item.id} className="flex flex-col items-center justify-center px-4">
+                        <AspectRatio ratio={1}>
+                            <motion.div
+                                className="relative flex items-center justify-center w-full h-full rounded-lg group overflow-hidden"
+                            >
+                                <motion.img
+                                    src={item.imageUrl}
+                                    alt={item.name}
+                                    className="absolute inset-0 object-cover w-full h-full"
+                                />
+                                <div className="absolute inset-0 bg-muted/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-full h-full">
+                                    <div className="flex flex-col gap-4 justify-center items-center w-full h-full">
+                                        <h1>{item.name}</h1>
+                                        {item.instagram && (
+                                            <Link href={item.instagram.link} target="_blank" className="flex items-center gap-2">
+                                                <Instagram size={18} />
+                                                {item.instagram.label}
+                                            </Link>
+                                        )}
+                                        {item.youtube && (
+                                            <Link href={item.youtube.link} target="_blank" className="flex items-center gap-2">
+                                                <Youtube size={20} />
+                                                {item.youtube.label}
+                                            </Link>
+                                        )}
+                                        {item.twitter && (
+                                            <Link href={item.twitter.link} target="_blank" className="flex items-center gap-2">
+                                                <Twitter size={20} />
+                                                {item.twitter.label}
+                                            </Link>
+                                        )}
                                     </div>
+                                </div>
+                                <motion.div className="absolute inset-0 bg-muted transition-opacity duration-300 w-full h-full"
+                                initial={{height:"100%"}}
+                                animate={{height:"0%"}}
+                                transition={{duration: 1, ease:"easeInOut"}}
+                                >
                                 </motion.div>
-                            </AspectRatio>
-                            {item.name}
-                        </div>
-                    ))}
-                </div>
+                            </motion.div>
+                        </AspectRatio>
+                        {item.name}
+                    </div>
+                ))}
             </div>
         </div>
     );
